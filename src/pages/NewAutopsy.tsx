@@ -85,7 +85,7 @@ export default function NewAutopsy() {
       if (!user) throw new Error('Not authenticated');
 
       // Check free tier
-      const { data: sub } = await supabase.from('subscriptions').select('*').eq('user_id', user.id).single();
+      const { data: sub } = await supabase.from('subscriptions').select('*').eq('user_id', user.id).maybeSingle();
       if (sub && sub.analyses_used >= sub.analyses_limit) {
         clearInterval(interval);
         setIsLoading(false);

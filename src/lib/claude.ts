@@ -1,4 +1,5 @@
-import { AnalysisResult, type FormData } from '@/stores/proposalStore';
+import type { FormData } from '@/stores/proposalStore';
+import type { AnalysisResult } from '@/lib/supabase';
 
 export async function analyzeProposal(formData: FormData): Promise<AnalysisResult> {
   const apiKey = import.meta.env.VITE_ANTHROPIC_API_KEY;
